@@ -3,7 +3,7 @@ import React from 'react'
 import { Formik } from 'formik'
 import * as Yup from 'yup'
 import Validator from 'email-validator'
-import { firebase, db } from '../../firebase'
+import firebase from '../../firebase'
 
 
 const SignupForm = ({ navigation }) => {
@@ -22,6 +22,7 @@ const SignupForm = ({ navigation }) => {
         .auth()
         .createUserWithEmailAndPassword(email, password)
       console.log('Firebase User created successfully', email, password)
+      navigation.navigate('HomeScreen')
       // db.collection('users').add({
       //   owner_uid: authUser.user.uid,
       //   username: username,
